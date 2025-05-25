@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>簡易ログイン付きスロット</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="login-screen">
     <h2>ログイン</h2>
-    <input type="text" id="username" placeholder="ユーザーID">
-    <input type="password" id="password" placeholder="パスワード">
-    <button onclick="login()">ログイン</button>
+    <input type="text" id="username" placeholder="ユーザーID" />
+    <input type="password" id="password" placeholder="パスワード" />
+    <button id="login-btn">ログイン</button>
     <p id="login-error" style="color:red;"></p>
   </div>
 
@@ -26,10 +26,39 @@
     </div>
     <button id="spin-button">スピン！(1枚消費)</button>
     <p id="message"></p>
-    <button onclick="logout()">ログアウト</button>
+    <button id="logout-btn">ログアウト</button>
+
+    <p id="login-bonus" style="color:yellow;"></p>
+
+    <!-- 交換所 -->
+    <div id="exchange-section" class="panel">
+      <h3>交換所</h3>
+      <button id="exchange-10-coins">メダル10枚でアイテム1個と交換</button>
+      <p id="exchange-message"></p>
+    </div>
+
+    <!-- ランキング -->
+    <div id="ranking-section" class="panel">
+      <h3>ランキング</h3>
+      <ol id="ranking-list"></ol>
+    </div>
+
+    <!-- 対戦 -->
+    <div id="battle-section" class="panel">
+      <h3>対戦機能</h3>
+      <button id="start-battle">対戦開始</button>
+      <p id="battle-message"></p>
+    </div>
+
+    <!-- 暗証番号 -->
+    <div id="secret-code-section" class="panel">
+      <h3>暗証番号入力</h3>
+      <input type="text" id="secret-code-input" placeholder="暗証番号を入力" />
+      <button id="secret-code-btn">送信</button>
+      <p id="secret-code-message"></p>
+    </div>
   </div>
 
-  <script src="login.js"></script>
   <script src="game.js"></script>
 </body>
 </html>
