@@ -8,8 +8,6 @@ body {
   min-height: 100vh;
   position: relative;
 }
-
-/* 背景の上に半透明の黒いレイヤーを重ねる */
 body::before {
   content: "";
   position: fixed;
@@ -17,8 +15,6 @@ body::before {
   background: rgba(0, 0, 0, 0.6);
   z-index: -1;
 }
-
-/* ログイン画面とゲーム画面の共通スタイル */
 #login-screen, #game-screen {
   max-width: 400px;
   margin: 60px auto 40px auto;
@@ -27,8 +23,6 @@ body::before {
   border-radius: 10px;
   box-sizing: border-box;
 }
-
-/* フォームの入力幅調整 */
 input {
   padding: 10px;
   margin: 5px 0;
@@ -38,8 +32,6 @@ input {
   border: none;
   font-size: 16px;
 }
-
-/* ボタン幅も100%で統一 */
 button {
   padding: 10px 20px;
   margin: 10px 0;
@@ -55,14 +47,12 @@ button {
 button:hover {
   background-color: #218838;
 }
-
 #slot-machine {
   display: flex;
   justify-content: center;
   margin: 20px 0;
   gap: 10px;
 }
-
 .reel {
   font-size: 50px;
   width: 60px;
@@ -75,4 +65,12 @@ button:hover {
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   color: black;
+}
+.panel {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 10px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 10px;
+  color: white;
 }
