@@ -7,28 +7,41 @@ function login() {
     return;
   }
 
-  // パスワード保存（※簡易方式、実運用NG）
   const savedPassword = localStorage.getItem(`user_${id}_pw`);
   if (savedPassword && savedPassword !== pw) {
     document.getElementById('login-error').textContent = 'パスワードが間違っています。';
     return;
   }
 
-  // 初回ログイン時はパスワード保存
   if (!savedPassword) {
     localStorage.setItem(`user_${id}_pw`, pw);
   }
 
-  // ログイン成功
   sessionStorage.setItem("currentUser", id);
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('game-screen').style.display = 'block';
   document.getElementById('user-label').textContent = id;
 
-  initGame(); // ゲームを初期化
+  // ログインボーナスチェック
+  const today = new Date().toDateString();
+  const lastLoginKey = `user_${id}_lastLogin`;
+  const lastLogin = localStorage.getItem(lastLoginKey);
+
+  if (lastLogin !== today) {
+    const coinKey = `user_${id}_coins`;
+    const currentCoins = parseInt(localStorage.getItem(coinKey) || "0", 10);
+    const newCoins = currentCoins + 5;
+    localStorage.setItem(coinKey, newCoins);
+    localStorage.setItem(lastLoginKey, today);
+    document.getElementById('login-bonus').textContent = "🎁 本日のログインボーナス +5枚！";
+  } else {
+    document.getElementById('login-bonus').textContent = "";
+  }
+
+  initGame();
 }
 
 function logout() {
   sessionStorage.removeItem("currentUser");
-  location.reload(); // 再読み込みでログアウト
+  location.reload();
 }
