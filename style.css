@@ -1,0 +1,78 @@
+body {
+  background: url('https://images.unsplash.com/photo-1551817958-20204e516687?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* 背景の上に半透明の黒いレイヤーを重ねる */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+/* ログイン画面とゲーム画面の共通スタイル */
+#login-screen, #game-screen {
+  max-width: 400px;
+  margin: 60px auto 40px auto;
+  padding: 20px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* フォームの入力幅調整 */
+input {
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+}
+
+/* ボタン幅も100%で統一 */
+button {
+  padding: 10px 20px;
+  margin: 10px 0;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+  background-color: #28a745;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #218838;
+}
+
+#slot-machine {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.reel {
+  font-size: 50px;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #333;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  color: black;
+}

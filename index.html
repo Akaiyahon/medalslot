@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>簡易ログイン付きスロット</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="login-screen">
+    <h2>ログイン</h2>
+    <input type="text" id="username" placeholder="ユーザーID">
+    <input type="password" id="password" placeholder="パスワード">
+    <button onclick="login()">ログイン</button>
+    <p id="login-error" style="color:red;"></p>
+  </div>
+
+  <div id="game-screen" style="display:none;">
+    <h1>🎰 スロットゲーム 🎰</h1>
+    <p>ようこそ、<span id="user-label"></span> さん！</p>
+    <p>所持メダル: <span id="coins">0</span> 枚</p>
+    <div id="slot-machine">
+      <div class="reel" id="reel1">🍒</div>
+      <div class="reel" id="reel2">🍋</div>
+      <div class="reel" id="reel3">🍊</div>
+    </div>
+    <button id="spin-button">スピン！(1枚消費)</button>
+    <p id="message"></p>
+    <button onclick="logout()">ログアウト</button>
+  </div>
+
+  <script src="login.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
